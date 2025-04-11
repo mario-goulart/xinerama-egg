@@ -1,0 +1,13 @@
+;; -*- scheme -*-
+
+((license "BSD")
+ (category graphics)
+ (author "John J. Foerch")
+ (synopsis "Xinerama bindings")
+ (dependencies srfi-1)
+ (component-options
+  (csc-options "-O3" "-d1"))
+ (components
+  (extension xinerama
+             (link-options -L -lXinerama))))
+

@@ -37,9 +37,16 @@
      xinerama-active?
      xinerama-query-screens)
 
-(import chicken scheme foreign)
-
-(use (srfi 1))
+(import scheme)
+(cond-expand
+  (chicken-4
+   (import chicken scheme foreign)
+   (use (srfi 1)))
+  ((or chicken-5 chicken-6)
+   (import scheme)
+   (import (chicken base)
+           (chicken foreign))
+   (import (srfi 1))))
 
 (foreign-declare "#include <X11/extensions/Xinerama.h>")
 
